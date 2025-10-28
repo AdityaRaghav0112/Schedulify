@@ -1,3 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  /* Light theme (default) */
+  :root {
+    --color-background: #F9FAFB; /* Arctic Pulse background */
+    --color-surface: #FFFFFF; /* bright white cards */
+    --color-primary-accent: #00ADB5; /* brand cyan */
+    --color-secondary-accent: #F59E0B; /* amber-gold */
+    --color-text-primary: #1F2937; /* charcoal */
+    --color-text-secondary: #6B7280; /* muted gray */
+    --color-success: #16A34A; /* green */
+    --color-error: #DC2626; /* red */
+    --color-waiting: #4F46E5; /* indigo */
+    --color-border: #E5E7EB; /* light gray */
+  }
+
+  /* Dark theme - apply vars directly on the root element for higher specificity */
+  :root.dark,
+  :root[data-theme='dark'] {
+    --color-background: #0F1117; /* Neon Graphite background */
+    --color-surface: #1A1D23; /* surface */
+    --color-primary-accent: #00ADB5; /* cyan */
+    --color-secondary-accent: #FFB400; /* amber */
+    --color-text-primary: #EAEAEA; /* off-white */
+    --color-text-secondary: #9CA3AF; /* muted gray */
+    --color-success: #4ADE80; /* green */
+    --color-error: #F87171; /* coral red */
+    --color-waiting: #6366F1; /* indigo */
+    --color-border: #2D323C; /* subtle border */
+  }
+
+  body {
+    @apply bg-background text-text-primary font-sans;
+  }
+
+  * {
+    @apply border-border;
+  }
+}
+
+@layer utilities {
+  .text-monospace {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+  
+  .neon-glow-cyan {
+    box-shadow: 0 0 10px rgba(0, 173, 181, 0.5), 0 0 20px rgba(0, 173, 181, 0.3);
+  }
+  
+  .neon-glow-amber {
+    box-shadow: 0 0 10px rgba(255, 180, 0, 0.5), 0 0 20px rgba(255, 180, 0, 0.3);
+  }
+  
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}

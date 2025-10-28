@@ -6,22 +6,24 @@
 
 /**
  * Get a unique color for a process based on its ID
+ * Uses Neon Graphite theme colors with neon glow effects
  * 
  * @param {number} id - Process ID
- * @returns {string} Tailwind CSS color class
+ * @returns {Object} Object with background color class and shadow class
  */
 export const getProcessColor = (id) => {
-  const colors = [
-    'bg-blue-500',
-    'bg-green-500',
-    'bg-yellow-500',
-    'bg-purple-500',
-    'bg-pink-500',
-    'bg-indigo-500',
-    'bg-red-500',
-    'bg-teal-500'
+  // Color palette using theme colors with variations
+  const colorPalette = [
+    { bg: 'bg-[#00ADB5]', shadow: 'shadow-neon-cyan' }, // Primary cyan
+    { bg: 'bg-[#FFB400]', shadow: 'shadow-neon-amber' }, // Secondary amber
+    { bg: 'bg-[#6366F1]', shadow: 'shadow-neon-indigo' }, // Waiting indigo
+    { bg: 'bg-[#4ADE80]', shadow: 'shadow-neon-green' }, // Success green
+    { bg: 'bg-[#8B5CF6]', shadow: 'shadow-[0_0_10px_rgba(139,92,246,0.5)]' }, // Purple
+    { bg: 'bg-[#EC4899]', shadow: 'shadow-[0_0_10px_rgba(236,72,153,0.5)]' }, // Pink
+    { bg: 'bg-[#10B981]', shadow: 'shadow-[0_0_10px_rgba(16,185,129,0.5)]' }, // Emerald
+    { bg: 'bg-[#F59E0B]', shadow: 'shadow-[0_0_10px_rgba(245,158,11,0.5)]' }, // Amber variant
   ];
-  return colors[(id - 1) % colors.length];
+  return colorPalette[(id - 1) % colorPalette.length];
 };
 
 /**

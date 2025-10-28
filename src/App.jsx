@@ -11,6 +11,7 @@
 
 import { useState } from 'react';
 import { Play } from 'lucide-react';
+import { Toaster, toast } from 'sonner';
 
 // Service Layer (Model)
 import {
@@ -33,7 +34,6 @@ import Footer from './components/Footer';
 // Utility Functions
 import {
   getNextProcessId,
-  DEFAULT_PROCESSES,
   DEFAULT_PROCESS,
   calculateAverages
 } from './utils/processHelpers';
@@ -60,7 +60,7 @@ const ALGORITHMS = [
  */
 function App() {
   // State Management
-  const [processes, setProcesses] = useState(DEFAULT_PROCESSES);
+  const [processes, setProcesses] = useState([]);
   const [algorithm, setAlgorithm] = useState('FCFS');
   const [timeQuantum, setTimeQuantum] = useState(2);
   const [results, setResults] = useState(null);
@@ -108,7 +108,7 @@ function App() {
    * Resets processes to default values
    */
   const handleResetProcesses = () => {
-    setProcesses(DEFAULT_PROCESSES);
+    setProcesses([]);
     setResults(null);
   };
 
@@ -118,7 +118,7 @@ function App() {
    */
   const handleVisualizeScheduling = () => {
     if (processes.length === 0) {
-      alert('Please add at least one process');
+      toast.error('Add at least one process to visualize.');
       return;
     }
 
@@ -149,51 +149,41 @@ function App() {
     }
 
     setResults(result);
+    toast.success('Scheduling complete. See results below.');
   };
 
   // Calculate averages for statistics display
   const averages = results ? calculateAverages(results.processResults) : null;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900 text-white">
+    <div className="min-h-screen bg-background text-text-primary">
+      <Toaster richColors position="top-right" />
       {/* Navigation Component */}
       <Navigation />
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-screen-xl mx-auto px-3 sm:px-4 lg:px-6 py-6 md:py-8 animate-fade-in">
         {/* Hero Section */}
-        <div className="mb-12 text-center">
-          <h1 className="text-5xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+        <div className="mb-8 md:mb-10 text-center">
+          <h1 className="text-3xl md:text-5xl font-extrabold mb-2 md:mb-4 bg-gradient-to-r from-primary-accent to-waiting bg-clip-text text-transparent">
             Visualize CPU Scheduling Algorithms
           </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-text-secondary max-w-2xl md:max-w-3xl mx-auto">
             Enter process details, select an algorithm, and watch the simulation unfold. 
             Bring CPU Scheduling Algorithms to Life.
           </p>
         </div>
 
         {/* Configuration Section */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700 shadow-xl">
-          <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-            <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+        <div className="bg-surface rounded-2xl p-4 md:p-6 mb-6 md:mb-8 border border-border shadow-card animate-fade-in-up">
+          <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 flex items-center gap-2 text-text-primary">
+            <span className="w-2 h-2 bg-primary-accent rounded-full shadow-neon-cyan"></span>
             Configuration
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             <div>
-              <label className="block text-sm font-semibold mb-2 text-gray-300">
-                Number of Processes
-              </label>
-              <input
-                type="number"
-                value={processes.length}
-                disabled
-                className="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 text-gray-400 cursor-not-allowed"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-semibold mb-2 text-gray-300">
+              <label className="block text-xs md:text-sm font-semibold mb-2 text-text-secondary">
                 Scheduling Algorithm
               </label>
               <select
@@ -202,17 +192,17 @@ function App() {
                   setAlgorithm(e.target.value);
                   setResults(null);
                 }}
-                className="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition cursor-pointer hover:border-blue-500"
+                className="w-full bg-surface border border-border rounded-lg px-3 py-2 md:px-4 md:py-3 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary-accent focus:border-primary-accent transition-smooth cursor-pointer hover:border-primary-accent font-mono"
               >
                 {ALGORITHMS.map(alg => (
-                  <option key={alg} value={alg}>{alg}</option>
+                  <option key={alg} value={alg} className="bg-surface">{alg}</option>
                 ))}
               </select>
             </div>
 
             {algorithm === 'Round Robin' && (
               <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-300">
+                <label className="block text-xs md:text-sm font-semibold mb-2 text-text-secondary">
                   Time Quantum
                 </label>
                 <input
@@ -223,7 +213,7 @@ function App() {
                     setResults(null);
                   }}
                   min="1"
-                  className="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  className="w-full bg-surface border border-border rounded-lg px-3 py-2 md:px-4 md:py-3 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary-accent focus:border-primary-accent transition-smooth font-mono"
                 />
               </div>
             )}
@@ -242,9 +232,9 @@ function App() {
         {/* Visualize Button */}
         <button
           onClick={handleVisualizeScheduling}
-          className="w-full bg-gradient-to-r from-blue-600 via-blue-500 to-purple-600 hover:from-blue-700 hover:via-blue-600 hover:to-purple-700 py-5 rounded-xl font-bold text-lg flex items-center justify-center gap-3 transition shadow-2xl shadow-blue-500/50 hover:shadow-blue-500/70 mb-8"
+          className="w-full bg-gradient-to-r from-primary-accent via-primary-accent to-waiting hover:from-primary-accent hover:via-primary-accent hover:to-waiting py-3 md:py-4 rounded-lg md:rounded-xl font-semibold md:font-bold text-base md:text-lg flex items-center justify-center gap-2 md:gap-3 transition-smooth shadow-card hover:shadow-neon-indigo mb-6 md:mb-8 text-background"
         >
-          <Play className="w-6 h-6" />
+          <Play className="w-5 h-5 md:w-6 md:h-6" />
           Visualize Scheduling
         </button>
 

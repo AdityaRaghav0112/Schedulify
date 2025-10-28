@@ -19,26 +19,26 @@ const StatisticsCards = ({ avgTurnaround, avgWaiting }) => {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div className="bg-gradient-to-br from-blue-600/20 to-blue-800/20 backdrop-blur-sm border border-blue-600/30 rounded-2xl p-6 shadow-xl">
-        <div className="text-sm font-semibold text-blue-300 mb-2 uppercase tracking-wide">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+      <div className="bg-surface border border-primary-accent/30 rounded-2xl p-4 md:p-6 shadow-card transition-smooth hover:border-primary-accent/50 animate-fade-in-up">
+        <div className="text-xs md:text-sm font-semibold text-primary-accent mb-1.5 md:mb-2 uppercase tracking-wide font-mono">
           Average Turnaround Time
         </div>
-        <div className="text-4xl font-bold text-white">
-          {avgTurnaround.toFixed(2)} <span className="text-xl text-blue-300">ms</span>
+        <div className="text-2xl md:text-4xl font-bold text-text-primary font-mono">
+          {avgTurnaround.toFixed(2)} <span className="text-base md:text-xl text-primary-accent">ms</span>
         </div>
-        <div className="mt-2 text-sm text-blue-200">
+        <div className="mt-1 md:mt-2 text-xs md:text-sm text-text-secondary">
           Time from arrival to completion
         </div>
       </div>
-      <div className="bg-gradient-to-br from-green-600/20 to-green-800/20 backdrop-blur-sm border border-green-600/30 rounded-2xl p-6 shadow-xl">
-        <div className="text-sm font-semibold text-green-300 mb-2 uppercase tracking-wide">
+      <div className="bg-surface border border-success/30 rounded-2xl p-4 md:p-6 shadow-card transition-smooth hover:border-success/50 animate-fade-in-up">
+        <div className="text-xs md:text-sm font-semibold text-success mb-1.5 md:mb-2 uppercase tracking-wide font-mono">
           Average Waiting Time
         </div>
-        <div className="text-4xl font-bold text-white">
-          {avgWaiting.toFixed(2)} <span className="text-xl text-green-300">ms</span>
+        <div className="text-2xl md:text-4xl font-bold text-text-primary font-mono">
+          {avgWaiting.toFixed(2)} <span className="text-base md:text-xl text-success">ms</span>
         </div>
-        <div className="mt-2 text-sm text-green-200">
+        <div className="mt-1 md:mt-2 text-xs md:text-sm text-text-secondary">
           Time spent in ready queue
         </div>
       </div>

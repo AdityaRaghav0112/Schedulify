@@ -26,46 +26,46 @@ const ProcessTable = ({
   onResetProcesses
 }) => {
   return (
-    <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 mb-8 border border-slate-700 shadow-xl">
+    <div className="bg-surface rounded-2xl p-4 md:p-6 mb-6 md:mb-8 border border-border shadow-card animate-fade-in-up">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold flex items-center gap-2">
-          <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+        <h2 className="text-2xl font-bold flex items-center gap-2 text-text-primary">
+          <span className="w-2 h-2 bg-success rounded-full shadow-neon-green"></span>
           Process Details
         </h2>
-        <div className="flex gap-3">
+        <div className="flex gap-2 md:gap-3">
           <button
             onClick={onAddProcess}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-5 py-2.5 rounded-lg transition font-semibold shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50"
+            className="flex items-center gap-2 bg-primary-accent hover:bg-primary-accent/90 px-4 py-2 md:px-5 md:py-2.5 rounded-lg transition-smooth font-semibold shadow-card hover:shadow-neon-cyan text-background"
           >
-            <Plus className="w-5 h-5" />
+            <Plus className="w-4 h-4 md:w-5 md:h-5" />
             Add Process
           </button>
           <button
             onClick={onResetProcesses}
-            className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 px-5 py-2.5 rounded-lg transition font-semibold"
+            className="flex items-center gap-2 bg-background/50 hover:bg-background/70 border border-border px-4 py-2 md:px-5 md:py-2.5 rounded-lg transition-smooth font-semibold text-text-primary"
           >
-            <RotateCcw className="w-5 h-5" />
+            <RotateCcw className="w-4 h-4 md:w-5 md:h-5" />
             Reset
           </button>
         </div>
       </div>
 
-      <div className="overflow-x-auto rounded-xl border border-slate-700">
+      <div className="overflow-x-auto rounded-xl border border-border">
         <table className="w-full">
-          <thead className="bg-slate-900/70">
+          <thead className="bg-background/50">
             <tr>
-              <th className="text-left py-4 px-6 font-semibold text-gray-300">Process ID</th>
-              <th className="text-left py-4 px-6 font-semibold text-gray-300">Arrival Time</th>
-              <th className="text-left py-4 px-6 font-semibold text-gray-300">Burst Time</th>
-              <th className="text-left py-4 px-6 font-semibold text-gray-300">Priority</th>
-              <th className="text-left py-4 px-6 font-semibold text-gray-300">Actions</th>
+              <th className="text-left py-4 px-6 font-semibold text-text-secondary">Process ID</th>
+              <th className="text-left py-4 px-6 font-semibold text-text-secondary">Arrival Time</th>
+              <th className="text-left py-4 px-6 font-semibold text-text-secondary">Burst Time</th>
+              <th className="text-left py-4 px-6 font-semibold text-text-secondary">Priority</th>
+              <th className="text-left py-4 px-6 font-semibold text-text-secondary">Actions</th>
             </tr>
           </thead>
-          <tbody className="bg-slate-900/30">
+          <tbody className="bg-background/30">
             {processes.map((proc, idx) => (
-              <tr key={proc.id} className={`border-t border-slate-700/50 hover:bg-slate-800/50 transition ${idx % 2 === 0 ? 'bg-slate-900/20' : ''}`}>
+              <tr key={proc.id} className={`border-t border-border/50 hover:bg-background/40 transition-smooth ${idx % 2 === 0 ? 'bg-background/20' : ''}`}>
                 <td className="py-4 px-6">
-                  <span className="font-bold text-blue-400">P{proc.id}</span>
+                  <span className="font-bold text-primary-accent font-mono">P{proc.id}</span>
                 </td>
                 <td className="py-4 px-6">
                   <input
@@ -73,7 +73,7 @@ const ProcessTable = ({
                     value={proc.arrivalTime}
                     onChange={(e) => onUpdateProcess(proc.id, 'arrivalTime', e.target.value)}
                     min="0"
-                    className="w-24 bg-slate-800 border border-slate-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                    className="w-20 md:w-24 bg-background/50 border border-border rounded-lg px-2 py-1.5 md:px-3 md:py-2 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary-accent focus:border-primary-accent transition-smooth font-mono"
                   />
                 </td>
                 <td className="py-4 px-6">
@@ -82,7 +82,7 @@ const ProcessTable = ({
                     value={proc.burstTime}
                     onChange={(e) => onUpdateProcess(proc.id, 'burstTime', e.target.value)}
                     min="1"
-                    className="w-24 bg-slate-800 border border-slate-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                    className="w-20 md:w-24 bg-background/50 border border-border rounded-lg px-2 py-1.5 md:px-3 md:py-2 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary-accent focus:border-primary-accent transition-smooth font-mono"
                   />
                 </td>
                 <td className="py-4 px-6">
@@ -91,15 +91,15 @@ const ProcessTable = ({
                     value={proc.priority}
                     onChange={(e) => onUpdateProcess(proc.id, 'priority', e.target.value)}
                     min="1"
-                    className="w-24 bg-slate-800 border border-slate-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                    className="w-20 md:w-24 bg-background/50 border border-border rounded-lg px-2 py-1.5 md:px-3 md:py-2 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary-accent focus:border-primary-accent transition-smooth font-mono"
                   />
                 </td>
                 <td className="py-4 px-6">
                   <button
                     onClick={() => onRemoveProcess(proc.id)}
-                    className="text-red-400 hover:text-red-300 hover:bg-red-500/10 p-2 rounded-lg transition"
+                    className="text-error hover:text-error/80 hover:bg-error/10 p-1.5 md:p-2 rounded-lg transition-smooth"
                   >
-                    <Trash2 className="w-5 h-5" />
+                    <Trash2 className="w-4 h-4 md:w-5 md:h-5" />
                   </button>
                 </td>
               </tr>
