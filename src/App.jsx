@@ -29,6 +29,7 @@ import ProcessTable from './components/ProcessTable';
 import GanttChart from './components/GanttChart';
 import StatisticsCards from './components/StatisticsCards';
 import ProcessResultsTable from './components/ProcessResultsTable';
+import TimelineChart from './components/TimelineChart';
 import Footer from './components/Footer';
 
 // Utility Functions
@@ -243,6 +244,9 @@ function App() {
           <div className="space-y-8 animate-fadeIn">
             {/* Gantt Chart Component */}
             <GanttChart timeline={results.timeline} />
+
+            {/* Recharts Graph */}
+            <TimelineChart timeline={results.timeline} />
 
             {/* Statistics Cards Component */}
             {averages && (

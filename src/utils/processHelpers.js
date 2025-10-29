@@ -27,6 +27,19 @@ export const getProcessColor = (id) => {
 };
 
 /**
+ * Get a hex color string for charts for a process id
+ * @param {number} id
+ * @returns {string} hex color like #00ADB5
+ */
+export const getProcessHexColor = (id) => {
+  const hexPalette = [
+    '#00ADB5', '#FFB400', '#6366F1', '#4ADE80',
+    '#8B5CF6', '#EC4899', '#10B981', '#F59E0B'
+  ];
+  return hexPalette[(id - 1) % hexPalette.length];
+};
+
+/**
  * Calculate average turnaround and waiting times from process results
  * 
  * @param {Array} processResults - Array of process result objects

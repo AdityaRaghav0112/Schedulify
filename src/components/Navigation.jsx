@@ -28,22 +28,22 @@ const Navigation = () => {
     setIsDark(next === 'dark');
   };
   return (
-    <nav className="bg-surface backdrop-blur-sm border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-primary-accent rounded-lg flex items-center justify-center shadow-neon-cyan transition-smooth">
-              <Play className="w-6 h-6 text-background" />
+    <nav className="bg-surface/95 backdrop-blur border-b border-border">
+      <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6">
+        <div className="flex items-center justify-between h-12">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 bg-primary-accent rounded-md flex items-center justify-center transition-smooth">
+              <Play className="w-5 h-5 text-background" />
             </div>
-            <span className="text-xl font-bold text-text-primary">Schedulify</span>
+            <span className="text-base sm:text-lg font-bold tracking-tight text-text-primary">Schedulify</span>
           </div>
-          <div className="flex items-center gap-6">
-            <a href="#" className="text-text-secondary hover:text-primary-accent transition-smooth">Home</a>
-            <a href="#" className="text-text-secondary hover:text-primary-accent transition-smooth">About</a>
-            <a href="#" className="text-text-secondary hover:text-primary-accent transition-smooth">Algorithms</a>
-            <a href="#" className="text-text-secondary hover:text-primary-accent transition-smooth">Contact</a>
-            <button onClick={onToggle} aria-label="Toggle theme" className="p-2 rounded-lg border border-border hover:border-primary-accent transition-smooth">
-              {isDark ? <Sun className="w-5 h-5 text-primary-accent" /> : <Moon className="w-5 h-5 text-primary-accent" />}
+          <div className="flex items-center gap-4">
+            <a href="#" className="text-sm text-text-secondary hover:text-primary-accent transition-smooth">Home</a>
+            <a href="#" className="text-sm text-text-secondary hover:text-primary-accent transition-smooth">About</a>
+            <a href="#" className="text-sm text-text-secondary hover:text-primary-accent transition-smooth">Algorithms</a>
+            <a href="#" className="text-sm text-text-secondary hover:text-primary-accent transition-smooth">Contact</a>
+            <button onClick={onToggle} aria-label="Toggle theme" className="p-1.5 rounded-md border border-border hover:border-primary-accent transition-smooth">
+              {isDark ? <Sun className="w-4 h-4 text-primary-accent" /> : <Moon className="w-4 h-4 text-primary-accent" />}
             </button>
           </div>
         </div>
