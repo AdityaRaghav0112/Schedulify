@@ -3,10 +3,11 @@
  * @description Top navigation bar for the Schedulify application
  * @module components/Navigation
  */
-
+import React from 'react';
 import { useEffect, useState } from 'react';
 import { Play, Sun, Moon } from 'lucide-react';
 import { toggleTheme } from '../utils/theme.js';
+import {Link} from 'react-router-dom';
 
 /**
  * Navigation component for the application header
@@ -38,10 +39,10 @@ const Navigation = () => {
             <span className="text-base sm:text-lg font-bold tracking-tight text-text-primary">Schedulify</span>
           </div>
           <div className="flex items-center gap-4">
-            <a href="#" className="text-sm text-text-secondary hover:text-primary-accent transition-smooth">Home</a>
-            <a href="#" className="text-sm text-text-secondary hover:text-primary-accent transition-smooth">About</a>
-            <a href="#" className="text-sm text-text-secondary hover:text-primary-accent transition-smooth">Algorithms</a>
-            <a href="#" className="text-sm text-text-secondary hover:text-primary-accent transition-smooth">Contact</a>
+            <Link to="/" className="text-sm text-text-secondary hover:text-primary-accent transition-smooth">Home</Link>
+            <Link to="/about" className="text-sm text-text-secondary hover:text-primary-accent transition-smooth">About</Link>
+            <Link to="/algorithms" className="text-sm text-text-secondary hover:text-primary-accent transition-smooth">Algorithms</Link>
+            <Link to="contact" className="text-sm text-text-secondary hover:text-primary-accent transition-smooth">Contact</Link>
             <button onClick={onToggle} aria-label="Toggle theme" className="p-1.5 rounded-md border border-border hover:border-primary-accent transition-smooth">
               {isDark ? <Sun className="w-4 h-4 text-primary-accent" /> : <Moon className="w-4 h-4 text-primary-accent" />}
             </button>
