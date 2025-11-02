@@ -191,13 +191,14 @@ function App() {
                   </div>
                 )}
               </div>
-              <Footer />
+              
             </div>
           }
         />
         {/* Page for algorithms info */}
         <Route path="/algorithms" element={<Algorithms />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
