@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Doc_fcfs from './docs/Doc_fcfs';
-import Doc_rr from './docs/Doc_rr'; // make sure this exists!
+import Doc_rr from './docs/Doc_rr';
+import Doc_SJF from './docs/Doc_SJF';
 
 const Algorithms = () => {
   const algo = [
     { id: 1, name: 'FCFS', component: <Doc_fcfs /> },
     { id: 2, name: 'Round-Robin', component: <Doc_rr /> },
+    { id: 3, name: 'SJF', component: <Doc_SJF/>},
   ];
 
   const [selectedAlgo, setSelectedAlgo] = useState(null);
@@ -45,6 +47,7 @@ const Algorithms = () => {
             <>
               {selectedAlgo === 'FCFS' && <Doc_fcfs />}
               {selectedAlgo === 'Round-Robin' && <Doc_rr />}
+              {selectedAlgo === 'SJF' && <Doc_SJF />}
             </>
           ) : (
             <p className="text-text-secondary italic">

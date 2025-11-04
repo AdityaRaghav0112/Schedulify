@@ -77,7 +77,7 @@ const Doc_fcfs = () => {
         effectively, we'll use two examples -
       </p>
 
-      <ul className="list-disc text-lg">
+      <ul className="list-disc text-lg ml-6">
         <li>one where all processes arrive at the same time,</li>
         <li>another where processes arrive at different times.</li>
       </ul>
@@ -130,7 +130,7 @@ const Doc_fcfs = () => {
         </table>
       </div>
       <p className="font-bold mt-2">step-by-step execution: </p>
-      <ul className="list-decimal text-lg">
+      <ul className="list-decimal text-lg ml-6">
         <li>P1 will start first and run for 5 units of time (from 0 to 5).</li>
         <li>P2 will start next and run for 3 units of time (from 5 to 8).</li>
         <li>P3 will run last, executing for 8 units (from 8 to 16).</li>
@@ -210,7 +210,7 @@ const Doc_fcfs = () => {
         </table>
       </div>
 
-      <ul className="mt-3 list-disc">
+      <ul className="mt-3 list-disc ml-6">
         <li className="text-lg">
           <span className="font-semibold">Average Turnaround Time</span> = 9.67
         </li>
@@ -262,7 +262,7 @@ const Doc_fcfs = () => {
       </div>
 
       <p className="font-bold mt-2">step-by-step execution: </p>
-      <ul className="list-disc text-lg">
+      <ul className="list-disc text-lg ml-6">
         <li>
           P2 arrives at time 0 and runs for 3 units, so its completion time is:
           Completion Time of P2=0+3=3
@@ -342,7 +342,7 @@ const Doc_fcfs = () => {
           </tbody>
         </table>
       </div>
-      <ul className="mt-3 list-disc">
+      <ul className="mt-3 list-disc ml-6">
         <li className="text-lg">
           <span className="font-semibold">Average Turnaround Time</span> = 5.67
         </li>
@@ -352,7 +352,7 @@ const Doc_fcfs = () => {
       </ul>
 
       <h1 className="text-2xl font-bold mt-5">Advantages of FCFS</h1>
-      <ul className="mt-3 list-disc">
+      <ul className="mt-3 list-disc ml-6">
         <li className="text-lg">
           The simplest and basic form of CPU Scheduling algorithm
         </li>
@@ -374,7 +374,7 @@ const Doc_fcfs = () => {
       </ul>
 
       <h1 className="text-2xl font-bold mt-5">Disadvantages of FCFS</h1>
-      <ul className="mt-3 list-disc">
+      <ul className="mt-3 list-disc ml-6">
         <li className="text-lg">
           As it is a Non-preemptive CPU Scheduling Algorithm, FCFS can result in
           long waiting times, especially if a long process arrives before a
