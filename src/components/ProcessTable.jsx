@@ -35,7 +35,7 @@ const ProcessTable = ({
         <div className="flex gap-2">
           <button
             onClick={onAddProcess}
-            className="flex items-center gap-1.5 bg-primary-accent hover:bg-primary-accent/90 px-3 py-1.5 rounded-md transition-smooth font-semibold text-background text-sm"
+            className="flex items-center gap-1.5 bg-gray-500 hover:bg-primary-accent/90 px-3 py-1.5 rounded-md transition-smooth font-semibold text-background text-sm"
           >
             <Plus className="w-4 h-4" />
             Add Process

@@ -1,6 +1,19 @@
 import React from "react";
+import {motion} from 'framer-motion';
 const Doc_rr = () => {
+  const data = [
+    { process: "P1", AT: 0, BT: 4, CT: 8, TAT: "8 - 0 = 8", WT: "8 - 4 = 4" },
+    { process: "P2", AT: 0, BT: 5, CT: 12, TAT: "12 - 0 = 12", WT: "12 - 5 = 7" },
+    {process: "P3", AT: 0, BT: 3, CT: 11, TAT: "11 - 0 = 11", WT: "11 - 3 = 8",},
+  ]; 
+
   return (
+    <>
+    <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
     <div>
       <h1 className="text-2xl font-bold">Round Robin</h1>
       <p className="text-lg">
@@ -40,7 +53,7 @@ const Doc_rr = () => {
         </li>
       </ul>
       <div className="ex-image flex justify-center p-4">
-        <img className="size-2/3" src="../../../public/round_robinn.webp" alt="" />
+        <img className="size-2/3" src="/round_robinn.webp" alt="" />
       </div>
       
       <h2 className="text-2xl font-bold my-2">Example : </h2>
@@ -58,7 +71,7 @@ const Doc_rr = () => {
       <div className="overflow-x-auto mt-6">
         <table className="min-w-full border border-gray-700 text-center ">
           <thead>
-            <tr className="bg-gradient-to-r from-primary-accent to-waiting text-white">
+            <tr className="bg-[var(--color-logo1)] text-[var(--color-text-footerP)]">
               <th className="px-4 py-2 border border-gray-700">Process</th>
               <th className="px-4 py-2 border border-gray-700">Arrival Time</th>
               <th className="px-4 py-2 border border-gray-700">Burst Time</th>
@@ -122,7 +135,35 @@ const Doc_rr = () => {
           </li>
         </ol>
       </p>
-      tables.
+      
+      <div className="overflow-x-auto mt-3">
+        <table className="min-w-full border border-gray-700 font-semibold text-center ">
+          <thead className="bg-[var(--color-logo1)] text-[var(--color-text-footerP)]">
+            <tr>
+              <th className="border border-gray-700 px-4 py-2">Processes</th>
+              <th className="border border-gray-700 px-4 py-2">AT</th>
+              <th className="border border-gray-700 px-4 py-2">BT</th>
+              <th className="border border-gray-700 px-4 py-2">CT</th>
+              <th className="border border-gray-700 px-4 py-2">TAT</th>
+              <th className="border border-gray-700 px-4 py-2">WT</th>
+            </tr>
+          </thead>
+          <tbody className="">
+            {data.map((row, index) => (
+              <tr key={index} className="">
+                <td className="border border-gray-700 px-4 py-2">
+                  {row.process}
+                </td>
+                <td className="border border-gray-700 px-4 py-2">{row.AT}</td>
+                <td className="border border-gray-700 px-4 py-2">{row.BT}</td>
+                <td className="border border-gray-700 px-4 py-2">{row.CT}</td>
+                <td className="border border-gray-700 px-4 py-2">{row.TAT}</td>
+                <td className="border border-gray-700 px-4 py-2">{row.WT}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <h4 className="text-xl font-bold">Step-by-Step Execution:</h4>
       <ol className="list-decimal list-inside mt-2 ml-4">
         <li className="text-lg">
@@ -271,6 +312,8 @@ const Doc_rr = () => {
         </li>
       </ul>
     </div>
+    </motion.div>
+    </>
   );
 };
 

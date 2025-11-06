@@ -3,6 +3,7 @@ import { Play } from 'lucide-react';
 import { Toaster, toast } from 'sonner';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Algorithms from './components/Algorithms';
+import {motion} from 'framer-motion';
 
 // Service Layer (Model)
 import {
@@ -111,15 +112,23 @@ function App() {
             <div className="min-h-screen bg-background text-text-primary">
               
               <div className="max-w-screen-xl mx-auto px-3 sm:px-4 lg:px-6 py-6 md:py-8">
+                <motion.div
+                  initial={{opacity:0, y:15}}
+                  animate={{opacity:1, y:0}}
+                  transition={{duration:0.6}}>
                 <div className="mb-8 md:mb-10 text-center">
-                  <h1 className="text-3xl md:text-5xl font-extrabold mb-2 md:mb-4 bg-gradient-to-r from-primary-accent to-waiting bg-clip-text text-transparent">
+                  <h1 className="text-3xl md:text-5xl font-extrabold mb-2 md:mb-4 p-3 bg-gradient-to-r from-[var(--color-logo1)] to-[var(--color-logo2)] bg-clip-text text-transparent">
                     Visualize CPU Scheduling Algorithms
                   </h1>
                   <p className="text-base md:text-lg text-text-secondary max-w-2xl mx-auto">
                     Enter process details, select an algorithm, and watch the simulation unfold.
                   </p>
                 </div>
-
+                </motion.div>
+                <motion.div
+                  initial={{opacity:0, y:15}}
+                  animate={{opacity:1, y:0}}
+                  transition={{duration:0.6, delay:0.3}}>
                 <div className="bg-surface rounded-2xl p-4 md:p-6 mb-6 md:mb-8 border border-border shadow-card">
                   <h2 className="text-xl font-bold mb-4 flex items-center gap-2 text-text-primary">
                     <span className="w-2 h-2 bg-primary-accent rounded-full"></span>
@@ -160,7 +169,11 @@ function App() {
                     )}
                   </div>
                 </div>
-
+                </motion.div>
+                <motion.div
+                  initial={{opacity:0, y:15}}
+                  animate={{opacity:1, y:0}}
+                  transition={{duration:0.6, delay:0.4}}>
                 <ProcessTable
                   processes={processes}
                   onAddProcess={handleAddProcess}
@@ -168,14 +181,19 @@ function App() {
                   onUpdateProcess={handleUpdateProcess}
                   onResetProcesses={handleResetProcesses}
                 />
-
+                </motion.div>
+                <motion.div
+                  initial={{opacity:0, x:20}}
+                  animate={{opacity:1, x:0}}
+                  transition={{duration:0.6, delay:0.4}}>
                 <button
                   onClick={handleVisualizeScheduling}
-                  className="w-full bg-gradient-to-r from-primary-accent to-waiting py-3 rounded-lg font-bold flex items-center justify-center gap-2 text-background"
+                  className="w-full bg-gradient-to-r from-[var(--color-logo1)] to-[var(--color-logo2)] py-3 rounded-lg font-bold flex items-center justify-center gap-2 text-background"
                 >
                   <Play className="w-5 h-5" />
                   Visualize Scheduling
                 </button>
+                </motion.div>
 
                 {results && (
                   <div className="space-y-8 mt-8">

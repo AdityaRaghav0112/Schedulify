@@ -7,9 +7,13 @@
 @layer base {
   /* Light theme (default) */
   :root {
+    --color-logo1: #000000;
+    --color-logo2: #9b9b9b;
     --color-background: #F9FAFB; /* Arctic Pulse background */
     --color-surface: #FFFFFF; /* bright white cards */
-    --color-primary-accent: #00ADB5; /* brand cyan */
+    --color-footer: #000000; /*footer bg*/
+    --color-text-footerP: #ffffff; /*footer text*/
+    --color-primary-accent: #000000; /* brand cyan */
     --color-secondary-accent: #F59E0B; /* amber-gold */
     --color-text-primary: #1F2937; /* charcoal */
     --color-text-secondary: #6B7280; /* muted gray */
@@ -22,12 +26,16 @@
   /* Dark theme - apply vars directly on the root element for higher specificity */
   :root.dark,
   :root[data-theme='dark'] {
-    --color-background: #0F1117; /* Neon Graphite background */
+    --color-logo1: #ffffff;
+    --color-logo2: #3f3f3f;
+    --color-background: #000000; /* Neon Graphite background */
+    --color-footer: #ffffff; /* footer surface */
     --color-surface: #1A1D23; /* surface */
-    --color-primary-accent: #00ADB5; /* cyan */
+    --color-primary-accent: #ffffff; /* cyan */
     --color-secondary-accent: #FFB400; /* amber */
     --color-text-primary: #EAEAEA; /* off-white */
-    --color-text-secondary: #9CA3AF; /* muted gray */
+    --color-text-secondary: #ffffff; /* muted gray */
+    --color-text-footerP: #000000; /* muted gray */
     --color-success: #4ADE80; /* green */
     --color-error: #F87171; /* coral red */
     --color-waiting: #6366F1; /* indigo */

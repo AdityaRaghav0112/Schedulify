@@ -33,7 +33,7 @@ const Navigation = () => {
       <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between h-12">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 bg-primary-accent rounded-md flex items-center justify-center transition-smooth">
+            <div className="w-8 h-8 bg-gray-500 rounded-md flex items-center justify-center transition-smooth">
               <Play className="w-5 h-5 text-background" />
             </div>
             <span className="text-base sm:text-lg font-bold tracking-tight text-text-primary">Schedulify</span>
