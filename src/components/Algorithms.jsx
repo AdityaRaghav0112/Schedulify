@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Doc_fcfs from "./docs/Doc_fcfs";
 import Doc_rr from "./docs/Doc_rr";
-import Doc_SJF from "./docs/Doc_SJF";
+import Doc_sjf from "./docs/Doc_SJF";
 
 const Algorithms = () => {
   const algo = [
     { id: 1, name: "FCFS", component: <Doc_fcfs /> },
     { id: 2, name: "Round-Robin", component: <Doc_rr /> },
-    { id: 3, name: "SJF", component: <Doc_SJF /> },
+    { id: 3, name: "SJF", component: <Doc_sjf /> },
   ];
 
   const [selectedAlgo, setSelectedAlgo] = useState(null);
@@ -27,14 +27,9 @@ const Algorithms = () => {
       </motion.h1>
 
       {/* Main content area — buttons on left, doc on right */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-      >
-      <div className="flex flex-col md:flex-row gap-8">
+      <div className="flex flex-col md:flex-row items-start gap-8">
         {/* Left panel: Algorithm list */}
-        <div className="bg-surface border border-border rounded-2xl p-4 shadow-card">
+        <div className="bg-card border border-border rounded-2xl p-4 shadow-card self-start">
           <ul className="flex flex-col gap-3">
             {algo.map((doc) => (
               <li key={doc.id}>
@@ -42,7 +37,7 @@ const Algorithms = () => {
                   onClick={() => setSelectedAlgo(doc.name)}
                   className={`text-left px-4 py-2 rounded-lg font-semibold border transition-all duration-200 ${
                     selectedAlgo === doc.name
-                      ? "bg-primary-accent text-white border-primary-accent shadow-lg"
+                      ? "bg-primary-accent text-white dark:text-black border-primary-accent shadow-lg"
                       : "bg-surface border-border hover:border-primary-accent hover:text-primary-accent"
                   }`}
                 >
@@ -54,12 +49,12 @@ const Algorithms = () => {
         </div>
 
         {/* Right panel: Selected documentation */}
-        <div className="w-full md:w-2/3 bg-surface border border-border rounded-2xl p-4 shadow-card min-h-[300px]">
+        <div className="w-full md:w-2/3 text-text-primary bg-surface border border-border rounded-2xl p-4 shadow-card min-h-[300px]">
           {selectedAlgo ? (
             <>
               {selectedAlgo === "FCFS" && <Doc_fcfs />}
               {selectedAlgo === "Round-Robin" && <Doc_rr />}
-              {selectedAlgo === "SJF" && <Doc_SJF />}
+              {selectedAlgo === "SJF" && <Doc_sjf />}
             </>
           ) : (
             <p className="text-text-secondary italic">
@@ -68,24 +63,6 @@ const Algorithms = () => {
           )}
         </div>
       </div>
-      </motion.div>
-
-      {/* Back link */}
-      <motion.div
-        initial={{opacity:0, x:20}}
-        animate={{opacity:1, x:0}}
-        transition={{duration:0.6, delay:0.4}}>
-
-      
-      <div className="mt-8">
-        <Link
-          to="/"
-          className="inline-block px-4 py-2 bg-gradient-to-r from-[var(--color-logo1)] to-[var(--color-logo2)] rounded-lg text-background font-semibold hover:shadow-neon-indigo transition-smooth "
-        >
-          ← Back to Visualizer
-        </Link>
-      </div>
-      </motion.div>
     </div>
   );
 };

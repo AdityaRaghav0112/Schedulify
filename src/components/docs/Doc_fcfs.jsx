@@ -346,7 +346,7 @@ const Doc_fcfs = () => {
             </div>
           </div>
 
-          <p>Now let's calculate average waiting time and turn around time: </p>
+          <p className="font-semibold">Now let's calculate average waiting time and turn around time: </p>
           <div className="overflow-x-auto">
             <table className="min-w-full border border-gray-700 font-semibold text-center">
               <thead className="bg-[var(--color-logo1)] text-[var(--color-text-footerP)]">
@@ -383,6 +383,7 @@ const Doc_fcfs = () => {
               </tbody>
             </table>
           </div>
+
           <ul className="mt-3 list-disc ml-6">
             <li className="text-lg">
               <span className="font-semibold">Average Turnaround Time</span> =
